@@ -1,0 +1,323 @@
+{
+ "version": 1,
+ "description": "Fuzzy rule base, SPEC.md §4.1 (27 rules, 3 decision tables). Edit via the Administrator screen or by hand; after changing rules the F_RAW bounds in 'normalization' must be recomputed (SPEC.md §4.3).",
+ "variables": {
+  "team_quality": {
+   "label": "Команда",
+   "terms": {
+    "low": "низька",
+    "medium": "середня",
+    "high": "висока"
+   }
+  },
+  "traction": {
+   "label": "Traction",
+   "terms": {
+    "low": "низький",
+    "medium": "середній",
+    "high": "високий"
+   }
+  },
+  "market_size": {
+   "label": "Розмір ринку",
+   "terms": {
+    "low": "низький",
+    "medium": "середній",
+    "high": "високий"
+   }
+  },
+  "competition": {
+   "label": "Конкуренція",
+   "terms": {
+    "low": "низька",
+    "medium": "середня",
+    "high": "висока"
+   }
+  },
+  "execution_capability": {
+   "label": "Виконавча спроможність",
+   "terms": {
+    "low": "низька",
+    "medium": "середня",
+    "high": "висока"
+   }
+  },
+  "market_attractiveness": {
+   "label": "Ринкова привабливість",
+   "terms": {
+    "low": "низька",
+    "medium": "середня",
+    "high": "висока"
+   }
+  },
+  "favorability": {
+   "label": "Сприятливість",
+   "terms": {
+    "low": "низька",
+    "medium": "середня",
+    "high": "висока"
+   }
+  }
+ },
+ "levels": [
+  {
+   "name": "execution_capability",
+   "inputs": [
+    "team_quality",
+    "traction"
+   ],
+   "output": "execution_capability",
+   "rules": [
+    {
+     "id": 1,
+     "if": [
+      "low",
+      "low"
+     ],
+     "then": "low"
+    },
+    {
+     "id": 2,
+     "if": [
+      "low",
+      "medium"
+     ],
+     "then": "low"
+    },
+    {
+     "id": 3,
+     "if": [
+      "low",
+      "high"
+     ],
+     "then": "medium"
+    },
+    {
+     "id": 4,
+     "if": [
+      "medium",
+      "low"
+     ],
+     "then": "low"
+    },
+    {
+     "id": 5,
+     "if": [
+      "medium",
+      "medium"
+     ],
+     "then": "medium"
+    },
+    {
+     "id": 6,
+     "if": [
+      "medium",
+      "high"
+     ],
+     "then": "high"
+    },
+    {
+     "id": 7,
+     "if": [
+      "high",
+      "low"
+     ],
+     "then": "medium"
+    },
+    {
+     "id": 8,
+     "if": [
+      "high",
+      "medium"
+     ],
+     "then": "high"
+    },
+    {
+     "id": 9,
+     "if": [
+      "high",
+      "high"
+     ],
+     "then": "high"
+    }
+   ]
+  },
+  {
+   "name": "market_attractiveness",
+   "inputs": [
+    "market_size",
+    "competition"
+   ],
+   "output": "market_attractiveness",
+   "rules": [
+    {
+     "id": 10,
+     "if": [
+      "low",
+      "low"
+     ],
+     "then": "medium"
+    },
+    {
+     "id": 11,
+     "if": [
+      "low",
+      "medium"
+     ],
+     "then": "low"
+    },
+    {
+     "id": 12,
+     "if": [
+      "low",
+      "high"
+     ],
+     "then": "low"
+    },
+    {
+     "id": 13,
+     "if": [
+      "medium",
+      "low"
+     ],
+     "then": "high"
+    },
+    {
+     "id": 14,
+     "if": [
+      "medium",
+      "medium"
+     ],
+     "then": "medium"
+    },
+    {
+     "id": 15,
+     "if": [
+      "medium",
+      "high"
+     ],
+     "then": "low"
+    },
+    {
+     "id": 16,
+     "if": [
+      "high",
+      "low"
+     ],
+     "then": "high"
+    },
+    {
+     "id": 17,
+     "if": [
+      "high",
+      "medium"
+     ],
+     "then": "high"
+    },
+    {
+     "id": 18,
+     "if": [
+      "high",
+      "high"
+     ],
+     "then": "medium"
+    }
+   ]
+  },
+  {
+   "name": "favorability",
+   "inputs": [
+    "execution_capability",
+    "market_attractiveness"
+   ],
+   "output": "favorability",
+   "rules": [
+    {
+     "id": 19,
+     "if": [
+      "low",
+      "low"
+     ],
+     "then": "low"
+    },
+    {
+     "id": 20,
+     "if": [
+      "low",
+      "medium"
+     ],
+     "then": "low"
+    },
+    {
+     "id": 21,
+     "if": [
+      "low",
+      "high"
+     ],
+     "then": "medium"
+    },
+    {
+     "id": 22,
+     "if": [
+      "medium",
+      "low"
+     ],
+     "then": "low"
+    },
+    {
+     "id": 23,
+     "if": [
+      "medium",
+      "medium"
+     ],
+     "then": "medium"
+    },
+    {
+     "id": 24,
+     "if": [
+      "medium",
+      "high"
+     ],
+     "then": "high"
+    },
+    {
+     "id": 25,
+     "if": [
+      "high",
+      "low"
+     ],
+     "then": "medium"
+    },
+    {
+     "id": 26,
+     "if": [
+      "high",
+      "medium"
+     ],
+     "then": "high"
+    },
+    {
+     "id": 27,
+     "if": [
+      "high",
+      "high"
+     ],
+     "then": "high"
+    }
+   ]
+  }
+ ],
+ "normalization": {
+  "F_RAW_MIN": 20.4167,
+  "F_RAW_MAX": 79.5833,
+  "grid": [
+   0,
+   2.5,
+   5,
+   7.5,
+   10
+  ],
+  "combinations": 625,
+  "computed_on": "2026-10-05"
+ }
+}

@@ -1,0 +1,17 @@
+venv/
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+*.db
+.DS_Store
+
+data/processed/*
+!data/processed/.gitkeep
+
+# попередня версія моделі (резервна копія перенавчання)
+models/model_prev.pkl
+
+# admin-mode artifacts
+models/last_training.json
+data/fuzzy_rules.prev.json
+.pytest_cache/

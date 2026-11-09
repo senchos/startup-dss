@@ -1,0 +1,25 @@
+# Python 3.10 (tested on 3.10.9). Versions are pinned to the ones the results in
+# results_log.md were produced with.
+
+# core
+pandas==2.3.3
+numpy==2.2.6
+scipy==1.14.1
+scikit-learn==1.7.2
+scikit-fuzzy==0.5.0
+networkx==3.4.2          # required by skfuzzy.control
+joblib==1.6.0
+
+# UI and reports
+streamlit==1.64.0
+reportlab==5.0.1
+
+# EDA notebook
+matplotlib==3.10.9
+seaborn==0.13.2
+jupyter==1.1.1
+
+# tests and tooling
+pytest==9.1.1
+pypdf==6.19.0            # PDF text checks in tests
+playwright==1.63.0       # scripts/take_screenshots.py (uses the system Google Chrome)
